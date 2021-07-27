@@ -4,12 +4,12 @@ from PIL import Image
 import barcharts as bt
 import graficas_tarta as gr
 import pdfplumber
+import plotly.express as px
 
 def config_page():
     st.set_page_config(page_title = "Impuesto sobre Sociedades 2018",
     page_icon =":chart:",
     layout = "wide")
-
 
 def home():
 
@@ -46,26 +46,34 @@ def home():
 
 def comp(df_ajustes):
 
-    st.header("Composición de los ajustes de las grandes empresas (todos los sectores)")
-
-    st.subheader("Aumentos")
+    sentido = st.sidebar.radio("¿Que tipo de ajuste quieres ver?",
+                     options=['Aumentos', 'Disminuciones'])
 
     comp_aum, comp_dism, todos_sort, todos_sort_dism = gr.comp(df_ajustes)
 
-    if st.button("Ver importes (miles €)"):
-        tabla_aum = todos_sort[["Partidas", "Todos los sectores"]].set_index("Partidas")
-        st.dataframe(tabla_aum)
+    if sentido == "Aumentos":
 
-    st.plotly_chart(comp_aum, use_container_width=True)
+        st.header("Composición de los ajustes de las grandes empresas (todos los sectores)")
 
+        st.subheader("Aumentos")
 
-    st.subheader("Disminuciones")
+        if st.button("Ver importes (miles €)"):
+            tabla_aum = todos_sort[["Partidas", "Todos los sectores"]].set_index("Partidas")
+            st.dataframe(tabla_aum)
 
-    if st.button("Ver importes (miles €) "):
-        tabla_dism = todos_sort_dism[["Partidas", "Todos los sectores"]].set_index("Partidas")
-        st.dataframe(tabla_dism)
+        st.plotly_chart(comp_aum, use_container_width=True)
 
-    st.plotly_chart(comp_dism, use_container_width=True)
+    elif sentido == "Disminuciones":
+
+        st.title("Composición de los ajustes de las grandes empresas (todos los sectores)")
+
+        st.subheader("Disminuciones")
+
+        if st.button("Ver importes (miles €) "):
+            tabla_dism = todos_sort_dism[["Partidas", "Todos los sectores"]].set_index("Partidas")
+            st.dataframe(tabla_dism)
+
+        st.plotly_chart(comp_dism, use_container_width=True)
 
 #Sección "Ajustes fiscales por sector"
 
@@ -86,43 +94,90 @@ def analisis_sector(df_ajustes):
     aum, dism, figA, figB = bt.ajustes_agregado(df_ajustes, sector, tipo)
 
     if tipo == "Aumentos":
-        st.plotly_chart(figA,use_container_width=True)
         if st.button("Ver importes (miles de €)"):
             aum = aum.set_index("Partidas")
             st.dataframe(aum)
+        st.plotly_chart(figA,use_container_width=True)
 
     elif tipo == "Disminuciones":
-        st.plotly_chart(figB,use_container_width=True)
         if st.button("Ver importes (miles de €)"):
             dism = dism.set_index("Partidas")
             st.dataframe(dism)
+        st.plotly_chart(figB,use_container_width=True)
 
 
-#def analisis_ajuste(df_ajustes):
 
+def analisis_ajuste(df_ajustes):
+
+    st.header("Análisis por ajuste fiscal")
+
+    df_ajustes_rev = df_ajustes[df_ajustes["Tipo"].str.startswith("Aumento") | df_ajustes["Tipo"].str.startswith("Disminución")]
+
+    lista_ajustes = df_ajustes_rev.set_index("Partidas").T
+
+    lista_ajustes = lista_ajustes.columns
+
+    nombre_ajuste = st.sidebar.selectbox("Escoge el ajuste que quieres visualizar", lista_ajustes)
+
+    st.write(nombre_ajuste)
+
+    df_ajuste_elegido = df_ajustes_rev[df_ajustes_rev["Partidas"].str.startswith(nombre_ajuste)].drop(columns=["Todos los sectores", "Otras actividades financieras"])
+
+    df_ajuste_graf = df_ajuste_elegido.drop(columns=["Tipo"]).set_index("Partidas").T
+
+    if st.button("Ver cifras "):
+        st.dataframe(df_ajuste_graf)
+
+    if df_ajuste_graf.columns.size == 2:
+
+        df_ajuste_graf.columns = ['Aumento', 'Disminución']
+
+        fig_1 = bt.grafico_aumento(df_ajuste_graf.sort_values('Aumento'))
+        st.plotly_chart(fig_1, use_container_width=True)
+
+        fig_2 = bt.grafico_disminucion(df_ajuste_graf.sort_values('Disminución'))
+        st.plotly_chart(fig_2, use_container_width=True)
+
+    else:
+
+        df_ajuste_graf.columns = ["Ajuste"]
+
+        fig_3= px.bar(df_ajuste_graf.sort_values('Ajuste'),
+                       x=df_ajuste_graf.index,
+                       y="Ajuste",
+                       color=df_ajuste_graf.index,
+                       labels={"index": " ", "Ajuste": "miles de euros"},
+                        height=500,
+                       template="plotly_white",
+                         hover_data = ["Ajuste"],
+                      color_discrete_sequence=px.colors.sequential.Turbo_r)
+
+        st.plotly_chart(fig_3, use_container_width=True)
 
 def otros_datos(df_size,df_sector):
 
-    st.write("Empresas españolas por tamaño")
-    st.write(df_size)
-    st.area_chart(df_size)
+    menu_otros = st.radio("Escoge lo que te interese",
+                     options=["Empresas españolas por tamaño", "Grandes empresas por sector"])
 
-    st.write("Grandes empresas por sector")
-    st.write(df_sector)
-    st.line_chart(df_sector)
+    if menu_otros == "Empresas españolas por tamaño":
 
+        st.subheader("Empresas españolas por tamaño")
 
+        if st.button("Ver cifras"):
+            st.dataframe(df_size)
 
-#código para incluir la opción de subir un archivo por el usuario:
+        fig_tam = bt.tamano(df_size)
 
-#@st.cache
-#def cargar_datos(csv_path_1,uploader_csv):
-
-    #if uploader_csv is None:
-        #df1 = pd.read_csv(csv_path_1,encoding = "Latin",sep = ";")
+        st.plotly_chart(fig_tam,use_container_width=True)
 
 
-    #else:
-        #df1 = pd.read_csv(uploader_csv,encoding = "Latin",sep = ";")
+    elif menu_otros == "Grandes empresas por sector":
 
-    #return df1
+        st.subheader("Grandes empresas por sector")
+
+        if st.button("Ver cifras "):
+            st.dataframe(df_size)
+
+        fig_emp_sector = gr.emp_sector(df_sector)
+
+        st.plotly_chart(fig_emp_sector, use_container_width=True)

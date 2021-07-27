@@ -26,7 +26,7 @@ def ajustes_agregado(df_ajustes,sector,tipo):
                   labels= {sector: "Millones de euros", "Partidas":"Ajuste fiscal"},
                   height=500,
                   template="plotly_white",
-                   color_discrete_sequence=px.colors.sequential.Turbo_r,
+                    color_discrete_sequence=px.colors.sequential.Turbo_r,
                   hover_data= {sector : False, "Partidas" : False})
 
 
@@ -46,3 +46,46 @@ def ajustes_agregado(df_ajustes,sector,tipo):
 
 
     return aum,dism,figA,figB
+
+
+def tamano(df_size):
+
+    fig_tam = px.bar(df_size,
+                 x='Num. Compañías',
+                 y='Tamaño',
+                 template="plotly_white",
+                 color_discrete_sequence=px.colors.sequential.Bluered_r,
+                 labels={  # replaces default labels by column name
+                     "Tamaño": "Tipo de empresa", "Num. Compañías": "Número de empresas"})
+
+    return fig_tam
+
+def grafico_aumento(df_ajuste_graf):
+
+    fig_1 = px.bar(df_ajuste_graf,
+                   x=df_ajuste_graf.index,
+                   y="Aumento",
+                   color=df_ajuste_graf.index,
+                   labels={"index": " ", "Aumento":"miles de euros"},
+                   height=500,
+                   template="plotly_white",
+                    hover_data=["Aumento"],
+                   color_discrete_sequence=px.colors.sequential.Turbo_r)
+    return fig_1
+
+def grafico_disminucion(df_ajuste_graf):
+
+    fig_2 = px.bar(df_ajuste_graf,
+                 x=df_ajuste_graf.index,
+                 y="Disminución",
+                 color=df_ajuste_graf.index,
+                labels={"index": " ", "Aumento": "miles de euros"},
+                height=500,
+                 template="plotly_white",
+                 hover_data=["Disminución"],
+                color_discrete_sequence=px.colors.sequential.Turbo_r)
+
+    return fig_2
+
+
+
