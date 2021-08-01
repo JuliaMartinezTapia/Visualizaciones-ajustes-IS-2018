@@ -140,17 +140,21 @@ def analisis_ajuste(df_ajustes):
 
     else:
 
-        df_ajuste_graf.columns = ["Ajuste"]
+        df_ajuste_graf.reset_index(inplace=True)
+
+        df_ajuste_graf.columns = ["Partidas", "Ajuste"]
+
+        st.write(df_ajuste_graf)
 
         fig_3= px.bar(df_ajuste_graf.sort_values('Ajuste'),
-                       x=df_ajuste_graf.index,
-                       y="Ajuste",
-                       color=df_ajuste_graf.index,
-                       labels={"index": " ", "Ajuste": "miles de euros"},
+                        x="Partidas",
+                        y="Ajuste",
+                        color="Partidas",
+                        labels={"index": " ", "Ajuste": "miles de euros"},
                         height=500,
-                       template="plotly_white",
-                         hover_data = ["Ajuste"],
-                      color_discrete_sequence=px.colors.sequential.Turbo_r)
+                        template="plotly_white",
+                        hover_data = ["Ajuste"],
+                        color_discrete_sequence=px.colors.sequential.Turbo_r)
 
         st.plotly_chart(fig_3, use_container_width=True)
 
