@@ -109,8 +109,6 @@ def analisis_sector(df_ajustes):
 
 def analisis_ajuste(df_ajustes):
 
-    st.header("Análisis por ajuste fiscal")
-
     df_ajustes_rev = df_ajustes[df_ajustes["Tipo"].str.startswith("Aumento") | df_ajustes["Tipo"].str.startswith("Disminución")]
 
     lista_ajustes = df_ajustes_rev.set_index("Partidas").T
@@ -119,24 +117,30 @@ def analisis_ajuste(df_ajustes):
 
     nombre_ajuste = st.sidebar.selectbox("Escoge el ajuste que quieres visualizar", lista_ajustes)
 
-    st.write(nombre_ajuste)
+    st.header(nombre_ajuste)
 
     df_ajuste_elegido = df_ajustes_rev[df_ajustes_rev["Partidas"].str.startswith(nombre_ajuste)].drop(columns=["Todos los sectores", "Otras actividades financieras"])
 
     df_ajuste_graf = df_ajuste_elegido.drop(columns=["Tipo"]).set_index("Partidas").T
 
-    if st.button("Ver cifras "):
-        st.dataframe(df_ajuste_graf)
-
     if df_ajuste_graf.columns.size == 2:
 
         df_ajuste_graf.columns = ['Aumento', 'Disminución']
 
-        fig_1 = bt.grafico_aumento(df_ajuste_graf.sort_values('Aumento'))
-        st.plotly_chart(fig_1, use_container_width=True)
+        if st.button("Ver cifras "):
+            st.dataframe(df_ajuste_graf)
 
+        st.write(" ")
+
+        left_col, right_col = st.beta_columns(2)
+
+        left_col.write(" Aumento")
+        fig_1 = bt.grafico_aumento(df_ajuste_graf.sort_values('Aumento'))
+        left_col.plotly_chart(fig_1, use_container_width=True)
+
+        right_col.write("Disminución")
         fig_2 = bt.grafico_disminucion(df_ajuste_graf.sort_values('Disminución'))
-        st.plotly_chart(fig_2, use_container_width=True)
+        right_col.plotly_chart(fig_2, use_container_width=True)
 
     else:
 
@@ -144,7 +148,10 @@ def analisis_ajuste(df_ajustes):
 
         df_ajuste_graf.columns = ["Partidas", "Ajuste"]
 
-        st.write(df_ajuste_graf)
+        if st.button("Ver cifras "):
+            st.dataframe(df_ajuste_graf)
+
+        st.write(" ")
 
         fig_3= px.bar(df_ajuste_graf.sort_values('Ajuste'),
                         x="Partidas",
@@ -154,7 +161,7 @@ def analisis_ajuste(df_ajustes):
                         height=500,
                         template="plotly_white",
                         hover_data = ["Ajuste"],
-                        color_discrete_sequence=px.colors.sequential.Turbo_r)
+                        color_discrete_sequence=px.colors.sequential.Magma_r)
 
         st.plotly_chart(fig_3, use_container_width=True)
 

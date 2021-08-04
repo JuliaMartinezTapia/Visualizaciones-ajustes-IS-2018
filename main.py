@@ -4,9 +4,6 @@ import functions as ft
 import pandas as pd
 import barcharts as nt
 
-#import pdfplumber
-
-
 csv_path_1 = "datos/Distribucion sociedades por tamaño 2018.csv"
 csv_path_2 = "datos/Grandes emp por sector para visualizacion.csv"
 csv_path_3 = "datos/dataset ajustes IS 2018 CCAA.csv"
