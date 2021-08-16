@@ -57,4 +57,6 @@ elif menu == "Análisis ajuste por ajuste":
 
 elif menu == "Otros datos de interés":
     ft.otros_datos(df_size,df_sector)
+    
+#version 2
 
