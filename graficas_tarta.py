@@ -24,7 +24,7 @@ def comp(df_ajustes):#la función se puede simplificar pero la dejo así por aho
                  names='Partidas',
                  template="plotly_white",
                  labels={'Todos los sectores': 'Importe en miles de euros'},
-                 color_discrete_sequence=px.colors.sequential.Inferno)
+                 color_discrete_sequence=px.colors.qualitative.G10)
                 #color_discrete_sequence=px.colors.diverging.Portland)
 
     comp_aum.update_traces(textposition='inside', textinfo='percent')
@@ -50,7 +50,7 @@ def comp(df_ajustes):#la función se puede simplificar pero la dejo así por aho
                  #title='Disminuciones a la base imponible',
                  template="plotly_dark",
                  labels={'Todos los sectores': 'Importe en miles de euros', "Partidas": "Ajuste fiscal"},
-                color_discrete_sequence=px.colors.sequential.Inferno)
+                color_discrete_sequence=px.colors.qualitative.G10)
 
     comp_dism.update_traces(textposition='inside', textinfo='percent')
 
@@ -63,6 +63,6 @@ def emp_sector(df_sector):
                     names='sector',
                     template="plotly_white",
                      labels={'num': 'Número de empresas', "sector": "Sector"},
-                    color_discrete_sequence=px.colors.sequential.Magma)
+                    color_discrete_sequence=px.colors.qualitative.G10)
 
     return fig_emp_sector

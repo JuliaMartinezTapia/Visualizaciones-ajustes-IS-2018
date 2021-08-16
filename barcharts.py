@@ -54,7 +54,7 @@ def tamano(df_size):
                  x='Num. Compañías',
                  y='Tamaño',
                  template="plotly_white",
-                 color_discrete_sequence=px.colors.sequential.Magma,
+                 color_discrete_sequence=px.colors.qualitative.Set1,
                  labels={  # replaces default labels by column name
                      "Tamaño": "Tipo de empresa", "Num. Compañías": "Número de empresas"})
 
@@ -70,7 +70,7 @@ def grafico_aumento(df_ajuste_graf):
                    height=500,
                    template="plotly_white",
                     hover_data=["Aumento"],
-                   color_discrete_sequence=px.colors.sequential.Magma_r)
+                   color_discrete_sequence=px.colors.qualitative.Prism)
     return fig_1
 
 def grafico_disminucion(df_ajuste_graf):
@@ -83,7 +83,7 @@ def grafico_disminucion(df_ajuste_graf):
                 height=500,
                  template="plotly_white",
                  hover_data=["Disminución"],
-                color_discrete_sequence=px.colors.sequential.Magma_r)
+                color_discrete_sequence=px.colors.qualitative.Prism)
 
     return fig_2
 
