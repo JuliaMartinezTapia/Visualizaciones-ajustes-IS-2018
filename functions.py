@@ -26,10 +26,8 @@ def home():
 
     st.subheader("¿De dónde salen los datos?")
 
-    st.markdown("Los datos utilizados para el análisis se han extraído de las estadísticas relativas al Impuesto sobre Sociedades elaboradas por el servicio de estudios tributarios y estadísticos de la Agencia Estatal de la Administración Tributaria (AEAT)\n"
-                "\n En particular, se ha utilizado la estadística de cuentas anuales no consolidadas del Impuesto sobre Sociedades para el 2018, sección ajustes al resultado contable de sociedades no financieras (excluyendo aseguradoras, entidades de crédito y IIC), apartado relativo a las sociedades no financieras por dimensión de empresa y sector (excluyendo entidades transparentes, exentas y cooperativas)")
-
-
+    st.markdown("Los datos utilizados para el análisis se han extraído de las estadísticas relativas al Impuesto sobre Sociedades elaboradas por el servicio de estudios tributarios y estadísticos de la Agencia Estatal de la Administración Tributaria (AEAT)")
+               
     with st.beta_expander("Información adicional sobre el proyecto"):
         with pdfplumber.open("Memoria Análisis ajustes 2018 -julio 2021.pdf") as pdf:
             pages_1 = pdf.pages[1]
