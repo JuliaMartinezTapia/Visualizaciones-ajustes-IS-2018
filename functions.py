@@ -146,8 +146,6 @@ def analisis_ajuste(df_ajustes):
 
         df_ajuste_graf.reset_index(inplace=True)
         
-        st.write(df_ajuste_graf)
-
         df_ajuste_graf.columns = ["Partidas", "Ajuste"]
 
         if st.button("Ver cifras "):
