@@ -145,6 +145,8 @@ def analisis_ajuste(df_ajustes):
     else:
 
         df_ajuste_graf.reset_index(inplace=True)
+        
+        st.write(df_ajuste_graf)
 
         df_ajuste_graf.columns = ["Partidas", "Ajuste"]
 
