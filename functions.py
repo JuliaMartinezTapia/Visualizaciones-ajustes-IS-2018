@@ -156,12 +156,12 @@ def analisis_ajuste(df_ajustes):
         fig_3= px.bar(df_ajuste_graf.sort_values('Ajuste'),
                         x="Partidas",
                         y="Ajuste",
-                        color="Partidas",
+                        #color="Partidas",
                         labels={"index": " ", "Ajuste": "miles de euros"},
                         height=500,
                         template="plotly_white",
                         hover_data = ["Ajuste"],
-                        color_discrete_sequence=px.colors.qualitative.Prism)
+                        color_discrete_sequence=px.colors.qualitative.Light24)
 
         st.plotly_chart(fig_3, use_container_width=True)
 
