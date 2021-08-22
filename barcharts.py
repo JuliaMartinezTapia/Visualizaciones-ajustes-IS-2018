@@ -83,7 +83,7 @@ def grafico_disminucion(df_ajuste_graf):
                 height=500,
                  template="plotly_white",
                  hover_data=["Disminución"],
-                color_discrete_sequence=px.colors.qualitative.Dark24)
+                color_discrete_sequence=px.colors.qualitative.Light24)
 
     return fig_2
 
