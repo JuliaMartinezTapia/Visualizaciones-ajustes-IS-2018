@@ -24,10 +24,12 @@ def comp(df_ajustes):#la función se puede simplificar pero la dejo así por aho
                  names='Partidas',
                  template="plotly_white",
                  labels={'Todos los sectores': 'Importe en miles de euros'},
-                 color_discrete_sequence=px.colors.qualitative.G10)
+                 color_discrete_sequence=px.colors.sequential.Turbo_r)
                 #color_discrete_sequence=px.colors.diverging.Portland)
+        
+    comp_aum.update_layout(showlegend=False)
 
-    comp_aum.update_traces(textposition='inside', textinfo='percent')
+    comp_aum.update_traces(textposition='outside', textinfo='Partidas')
 
     #DISMINUCIONES
     ajustes_dism = df_ajustes[df_ajustes["Tipo"].isin(["Disminución"])][["Partidas", "Tipo", "Todos los sectores"]]
