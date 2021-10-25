@@ -63,6 +63,6 @@ def emp_sector(df_sector):
                     names='sector',
                     template="plotly_white",
                      labels={'num': 'Número de empresas', "sector": "Sector"},
-                    color_discrete_sequence=px.colors.sequential.Inferno)
+                    color_discrete_sequence=px.colors.sequential.Hot)
 
     return fig_emp_sector
