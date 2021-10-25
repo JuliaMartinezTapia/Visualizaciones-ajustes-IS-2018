@@ -16,7 +16,7 @@ csv_path_3 = "datos/dataset ajustes IS 2018 CCAA.csv"
 ft.config_page()
 
 st.sidebar.title("Panel de control")
-st.write("HOLA!!!!!")
+st.sidebar.write("HOLA!!!!!")
 
 #Importo los csv con los datos en formato dataframe
 
