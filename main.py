@@ -12,8 +12,11 @@ csv_path_3 = "datos/dataset ajustes IS 2018 CCAA.csv"
 
 ft.config_page()
 
+img = Image.open("datos/Imagen de Pexels en Pixabay.jpg")
+st.sidebar.image(img,use_column_width="auto")
+
 st.sidebar.title("Panel de control")
-st.sidebar.write("HOLITAAAAAA")
+
 
 #Importo los csv con los datos en formato dataframe
 
