@@ -161,7 +161,7 @@ def analisis_ajuste(df_ajustes):
                         height=500,
                         template="plotly_white",
                         hover_data = ["Ajuste"],
-                        color_discrete_sequence=px.colors.qualitative.Light24)
+                        color_discrete_sequence=px.colors.sequential.Inferno)
 
         st.plotly_chart(fig_3, use_container_width=True)
 
