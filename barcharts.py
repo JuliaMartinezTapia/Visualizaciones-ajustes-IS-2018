@@ -26,7 +26,7 @@ def ajustes_agregado(df_ajustes,sector,tipo):
                   labels= {sector: "Millones de euros", "Partidas":"Ajuste fiscal"},
                   height=500,
                   template="plotly_white",
-                    color_discrete_sequence=px.colors.sequential.Inferno_r,
+                    color_discrete_sequence=px.colors.sequential.Inferno,
                   hover_data= {sector : False, "Partidas" : False})
 
 
@@ -39,7 +39,7 @@ def ajustes_agregado(df_ajustes,sector,tipo):
                   labels={sector: "Millones de euros", "Partidas": "Ajuste fiscal"},
                   height=500,
                   template="plotly_white",
-                  color_discrete_sequence=px.colors.sequential.Inferno_r,
+                  color_discrete_sequence=px.colors.sequential.Inferno,
                   hover_data={sector: False, "Partidas": False})
 
     figB.update_layout(title_text=sector, font=dict(size=9))
