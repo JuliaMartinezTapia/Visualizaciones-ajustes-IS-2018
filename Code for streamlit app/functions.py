@@ -17,8 +17,8 @@ def home():
 
     st.write(" ")
 
-    img = Image.open("datos/Imagen de Pexels en Pixabay.jpg")
-    st.image(img,use_column_width="auto")
+    #img = Image.open("datos/Imagen de Pexels en Pixabay.jpg")
+    #st.image(img,use_column_width="auto")
 
     st.header("Objetivo")
 
