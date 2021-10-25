@@ -55,7 +55,7 @@ def tamano(df_size):
                  y='Tamaño',
                  template="plotly_white",
                  color = "Tamaño",
-                 color_discrete_sequence=px.colors.sequential.Inferno,
+                 color_discrete_sequence=px.colors.sequential.Inferno_r,
                  labels={  # replaces default labels by column name
                      "Tamaño": "Tipo de empresa", "Num. Compañías": "Número de empresas"})
 
