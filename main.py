@@ -44,9 +44,9 @@ df_ajustes.columns = ['Partidas',
                       "Otras actividades financieras"]
 
 
-menu = st.sidebar.selectbox("Elige una sección",("Proyecto","A primera vista","Ajustes fiscales por sector","Análisis ajuste por ajuste","Otros datos de interés"))
+menu = st.sidebar.selectbox("Elige una sección",("Objetivo","A primera vista","Ajustes fiscales por sector","Análisis ajuste por ajuste","Otros datos de interés"))
 
-if menu == "Proyecto":
+if menu == "Objetivo":
     ft.home()
 
 elif menu == "A primera vista":
