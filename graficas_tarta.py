@@ -29,7 +29,7 @@ def comp(df_ajustes):#la función se puede simplificar pero la dejo así por aho
         
     comp_aum.update_layout(showlegend=False)
 
-    comp_aum.update_traces(textposition='outside', textinfo='Partidas')
+    comp_aum.update_traces(textposition='inside', textinfo='percent')
 
     #DISMINUCIONES
     ajustes_dism = df_ajustes[df_ajustes["Tipo"].isin(["Disminución"])][["Partidas", "Tipo", "Todos los sectores"]]
