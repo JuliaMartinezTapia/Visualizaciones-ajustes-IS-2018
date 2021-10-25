@@ -71,7 +71,7 @@ def grafico_aumento(df_ajuste_graf):
                    height=500,
                    template="plotly_white",
                     hover_data=["Aumento"],
-                   color_discrete_sequence=px.colors.sequential.RdBu)
+                   color_discrete_sequence=px.colors.sequential.Jet_r)
     
     fig_1.update_layout(showlegend=False)
     
@@ -87,7 +87,7 @@ def grafico_disminucion(df_ajuste_graf):
                 height=500,
                  template="plotly_white",
                  hover_data=["Disminución"],
-                color_discrete_sequence=px.colors.sequential.RdBu)
+                color_discrete_sequence=px.colors.sequential.Jet_r)
     
     fig_2.update_layout(showlegend=False)
 
