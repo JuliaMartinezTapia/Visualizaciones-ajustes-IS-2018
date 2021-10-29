@@ -27,7 +27,7 @@ def ajustes_agregado(df_ajustes,sector,tipo):
                   height=500,
                   template="plotly_white",    
                   hover_data= {sector : ":.", "Partidas" : False},
-                  color_discrete_sequence=px.colors.sequential.Inferno)
+                  color_discrete_sequence=px.colors.qualitative.T10)
               
     figA.update_layout(title_text=sector, font=dict(size=9),showlegend=False)
 
