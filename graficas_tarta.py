@@ -25,8 +25,8 @@ def comp(df_ajustes):#la función se puede simplificar pero la dejo así por aho
                  template="plotly_white",
                  labels={'Todos los sectores': 'Importe en miles de euros'},
                  color_discrete_sequence=px.colors.qualitative.T10,
-                 width=500,
-                 height=500)
+                 width=600,
+                 height=600)
                  
     #comp_aum.update_layout(showlegend=False)
 
