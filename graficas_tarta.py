@@ -54,7 +54,9 @@ def comp(df_ajustes):#la función se puede simplificar pero la dejo así por aho
                  #title='Disminuciones a la base imponible',
                  template="plotly_dark",
                  labels={'Todos los sectores': 'Importe en miles de euros', "Partidas": "Ajuste fiscal"},
-                color_discrete_sequence=px.colors.sequential.Blackbody)
+                color_discrete_sequence=px.colors.sequential.Blackbody,
+                 width=600,
+                 height=600)
 
     comp_dism.update_traces(textposition='inside', textinfo='percent')
 
