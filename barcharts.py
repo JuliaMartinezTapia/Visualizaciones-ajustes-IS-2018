@@ -38,7 +38,7 @@ def ajustes_agregado(df_ajustes,sector,tipo):
                   labels={sector: "Importe (miles de millones de euros)", "Partidas": "Ajuste fiscal"},
                   height=500,
                   template="plotly_white",
-                  color_discrete_sequence=px.colors.sequential.Inferno,
+                 color_discrete_sequence=px.colors.qualitative.T10,
                   hover_data= {sector : ":.", "Partidas" : False})
 
     figB.update_layout(title_text=sector, font=dict(size=9),showlegend=False)
@@ -54,7 +54,7 @@ def tamano(df_size):
                  y='Tamaño',
                  template="plotly_white",
                  color = "Tamaño",
-                 color_discrete_sequence=px.colors.sequential.Hot,
+                 color_discrete_sequence=px.colors.qualitative.T10,
                  labels={  # replaces default labels by column name
                      "Tamaño": "Tipo de empresa", "Num. Compañías": "Número de empresas"},
                  hover_data={"Num. Compañías":":."})
@@ -72,7 +72,7 @@ def grafico_aumento(df_ajuste_graf):
                    height=500,
                    template="plotly_white",
                    hover_data={"Aumento":":."},
-                   color_discrete_sequence=px.colors.sequential.Inferno_r)
+                   color_discrete_sequence=px.colors.qualitative.T10)
               
     
     fig_1.update_layout(showlegend=False)
@@ -89,7 +89,7 @@ def grafico_disminucion(df_ajuste_graf):
                 height=500,
                  template="plotly_white",
                  hover_data={"Disminución":":."},
-                color_discrete_sequence=px.colors.sequential.Inferno_r)
+                color_discrete_sequence=px.colors.qualitative.T10)
     
     fig_2.update_layout(showlegend=False)
 
