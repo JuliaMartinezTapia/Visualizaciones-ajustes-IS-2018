@@ -31,7 +31,7 @@ def ajustes_agregado(df_ajustes,sector,tipo):
               
 
 
-    figA.update_layout(title_text=sector, font=dict(size=9))
+    figA.update_layout(title_text=sector, font=dict(size=9),showlegend=False)
 
     # Gráfica disminuciones
 
@@ -43,7 +43,7 @@ def ajustes_agregado(df_ajustes,sector,tipo):
                   color_discrete_sequence=px.colors.sequential.Inferno,
                   hover_data={sector: False, "Partidas": False})
 
-    figB.update_layout(title_text=sector, font=dict(size=9))
+    figB.update_layout(title_text=sector, font=dict(size=9),showlegend=False)
 
 
     return aum,dism,figA,figB
