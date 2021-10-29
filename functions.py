@@ -162,7 +162,7 @@ def analisis_ajuste(df_ajustes):
                         template="plotly_white",
                         #hover_data = {"Partidas":":."},
                         hover_data = {"Partidas":False,"Ajuste":":."},
-                        color_discrete_sequence=px.colors.sequential.Inferno_r)
+                        color_discrete_sequence=px.colors.qualitative.T10_r)
         
         fig_3.update_layout(showlegend=False)
 
