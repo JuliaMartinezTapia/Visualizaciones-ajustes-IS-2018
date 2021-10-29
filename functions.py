@@ -50,7 +50,7 @@ def comp(df_ajustes):
     
     st.header("Composición de los ajustes de las grandes empresas (todos los sectores)")
     
-    col1, col2 = st.columns(2)
+    col1, col2 = st.beta_columns(2)
 
     col1.subheader("Aumentos")
 
