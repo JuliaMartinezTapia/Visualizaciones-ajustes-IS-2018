@@ -148,7 +148,7 @@ def analisis_ajuste(df_ajustes):
         
         df_ajuste_graf.columns = ["Partidas", "Ajuste"]
 
-        if st.button("Ver cifras "):
+        if st.button(" Ver cifras (miles de euros)"):
             st.dataframe(df_ajuste_graf)
 
         st.write(" ")
@@ -176,7 +176,7 @@ def otros_datos(df_size,df_sector):
 
         st.subheader("Empresas españolas por tamaño")
 
-        if st.button("Ver cifras"):
+        if st.button("Ver cifras (miles de euros) "):
             st.dataframe(df_size)
 
         fig_tam = bt.tamano(df_size)
@@ -188,7 +188,7 @@ def otros_datos(df_size,df_sector):
 
         st.subheader("Grandes empresas por sector")
 
-        if st.button("Ver cifras "):
+        if st.button("Ver cifras (miles de euros)"):
             st.dataframe(df_size)
 
         fig_emp_sector = gr.emp_sector(df_sector)
