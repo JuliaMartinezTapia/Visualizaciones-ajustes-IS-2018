@@ -92,6 +92,8 @@ def analisis_sector(df_ajustes):
     st.sidebar.markdown(nota_pie, unsafe_allow_html=True)
 
     aum, dism, figA, figB = bt.ajustes_agregado(df_ajustes, sector, tipo)
+    
+    st.dataframe(aum)
 
     if tipo == "Aumentos":
         if st.button("Ver importes (miles de €)"):
