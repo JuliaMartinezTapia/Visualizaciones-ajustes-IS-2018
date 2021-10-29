@@ -88,7 +88,7 @@ def analisis_sector(df_ajustes):
 
     #Defino un formato para las notas al pie:
 
-    nota_pie = '<p style="font-family:Arial; color:Black; font-size: 11px;">Recuerda que puedes ampliar el gráfico de barras cerando el panel de control, o bien haciendo click en las flechas que aparecen arriba a la derecha en el gráfico</p>'
+    nota_pie = '<p style="font-family:Arial; color:Black; font-size: 11px;">Ten en cuenta que puedes ampliar el gráfico de barras haciendo click en las flechas que aparecen arriba a la derecha en el gráfico</p>'
     st.sidebar.markdown(nota_pie, unsafe_allow_html=True)
 
     aum, dism, figA, figB = bt.ajustes_agregado(df_ajustes, sector, tipo)
