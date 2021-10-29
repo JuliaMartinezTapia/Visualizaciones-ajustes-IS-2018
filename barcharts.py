@@ -17,13 +17,13 @@ def ajustes_agregado(df_ajustes,sector,tipo):
     #Preparo los dataframe
 
     aum = df_ajustes[df_ajustes["Tipo"].isin(["Aumento"])][["Partidas", sector]].sort_values(sector, ascending=False)
-    dism = df_ajustes[df_ajustes["Tipo"].isin(["Disminución"])][["Partidas", sector]].sort_values(sector, ascending=False)
-    
-    aum[sector] = aum[sector]/1000
-    
-    #Gráfica aumentos
+    dism = df_ajustes[df_ajustes["Tipo"].isin(["Disminución"])][["Partidas", sector]].sort_values(sector, ascending=False)    
 
-    figA = px.bar(aum, x=sector, y="Partidas",
+    #Gráfica aumentos
+    
+    eje_x = aum[sector]/1000
+
+    figA = px.bar(aum, x=eje_x, y="Partidas",
                   color='Partidas',
                   labels= {sector: "Importe (miles de millones de euros)", "Partidas":"Ajuste fiscal"},
                   height=500,
