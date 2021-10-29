@@ -23,7 +23,7 @@ def ajustes_agregado(df_ajustes,sector,tipo):
 
     figA = px.bar(aum, x=sector, y="Partidas",
                   color='Partidas',
-                  labels= {sector: "Importe (miles de euros)", "Partidas":"Ajuste fiscal"},
+                  labels= {sector: "Importe (miles de millones de euros)", "Partidas":"Ajuste fiscal"},
                   height=500,
                   template="plotly_white",    
                   hover_data= {sector : ":.", "Partidas" : False},
@@ -35,7 +35,7 @@ def ajustes_agregado(df_ajustes,sector,tipo):
 
     figB = px.bar(dism, x=sector, y="Partidas",
                   color='Partidas',
-                  labels={sector: "Importe (miles de euros)", "Partidas": "Ajuste fiscal"},
+                  labels={sector: "Importe (miles de millones de euros)", "Partidas": "Ajuste fiscal"},
                   height=500,
                   template="plotly_white",
                   color_discrete_sequence=px.colors.sequential.Inferno,
