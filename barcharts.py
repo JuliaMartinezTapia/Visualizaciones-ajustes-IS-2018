@@ -67,10 +67,10 @@ def grafico_aumento(df_ajuste_graf):
                    x=df_ajuste_graf.index,
                    y="Aumento",
                    color=df_ajuste_graf.index,
-                   labels={"index": " ", "Aumento":"Importe (miles de euros)"},
+                   labels={"index": "Aumento", "Aumento":"Importe (miles de euros)"},
                    height=500,
                    template="plotly_white",
-                   hover_data={" ": False, "Aumento":":."},
+                   hover_data={"Aumento":":."},
                    color_discrete_sequence=px.colors.sequential.Inferno_r)
                     #"index" : False
     
