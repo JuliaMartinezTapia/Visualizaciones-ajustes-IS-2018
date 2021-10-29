@@ -70,7 +70,7 @@ def grafico_aumento(df_ajuste_graf):
                    labels={"index": " ", "Aumento":"Importe (miles de euros)"},
                    height=500,
                    template="plotly_white",
-                   hover_data={"index" : False,"Importe (miles de euros)":':.'},
+                   #hover_data={"index" : False,"Importe (miles de euros)":':.'},
                    color_discrete_sequence=px.colors.sequential.Inferno_r)
     
     fig_1.update_layout(showlegend=False)
