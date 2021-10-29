@@ -93,8 +93,6 @@ def analisis_sector(df_ajustes):
 
     aum, dism, figA, figB = bt.ajustes_agregado(df_ajustes, sector, tipo)
     
-    st.dataframe(aum)
-
     if tipo == "Aumentos":
         if st.button("Ver importes (miles de €)"):
             aum = aum.set_index("Partidas")
