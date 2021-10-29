@@ -19,7 +19,8 @@ def ajustes_agregado(df_ajustes,sector,tipo):
     aum = df_ajustes[df_ajustes["Tipo"].isin(["Aumento"])][["Partidas", sector]].sort_values(sector, ascending=False)
     dism = df_ajustes[df_ajustes["Tipo"].isin(["Disminución"])][["Partidas", sector]].sort_values(sector, ascending=False)
     
-    aum["Sector"] = aum["Sector"]/1000
+    st.write(aum)
+    #aum["Sector"] = aum["Sector"]/1000
 
     #Gráfica aumentos
 
