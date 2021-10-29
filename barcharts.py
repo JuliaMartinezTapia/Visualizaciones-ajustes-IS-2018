@@ -56,7 +56,8 @@ def tamano(df_size):
                  color = "Tamaño",
                  color_discrete_sequence=px.colors.sequential.Hot,
                  labels={  # replaces default labels by column name
-                     "Tamaño": "Tipo de empresa", "Num. Compañías": "Número de empresas"})
+                     "Tamaño": "Tipo de empresa", "Num. Compañías": "Número de empresas"},
+                 hover_data={"Num. Compañías":":."})
 
     return fig_tam
 
