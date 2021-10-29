@@ -67,12 +67,12 @@ def grafico_aumento(df_ajuste_graf):
                    x=df_ajuste_graf.index,
                    y="Aumento",
                    color=df_ajuste_graf.index,
-                   labels={"index": "Aumento", "Aumento":"Importe (miles de euros)"},
+                   labels={"index": "Sector", "Aumento":"Importe (miles de euros)"},
                    height=500,
                    template="plotly_white",
                    hover_data={"Aumento":":."},
                    color_discrete_sequence=px.colors.sequential.Inferno_r)
-                    #"index" : False
+              
     
     fig_1.update_layout(showlegend=False)
     
@@ -84,10 +84,10 @@ def grafico_disminucion(df_ajuste_graf):
                  x=df_ajuste_graf.index,
                  y="Disminución",
                  color=df_ajuste_graf.index,
-                labels={"index": " ", "Disminución": "miles de euros"},
+                labels={"index": "Sector", "Disminución": "miles de euros"},
                 height=500,
                  template="plotly_white",
-                 hover_data=["Disminución"],
+                 hover_data={"Disminución":":."},
                 color_discrete_sequence=px.colors.sequential.Inferno_r)
     
     fig_2.update_layout(showlegend=False)
