@@ -157,10 +157,10 @@ def analisis_ajuste(df_ajustes):
                         x="Partidas",
                         y="Ajuste",
                         color="Partidas",                        
-                        labels={"index": " ", "Ajuste": "miles de euros", "Partidas" : " "},
+                        labels={"index": "Sector", "Ajuste": "Importe (miles de euros)", "Partidas" : " "},
                         height=500,
                         template="plotly_white",
-                        hover_data = ["Ajuste"],
+                        hover_data = {"Ajuste":":."},
                         color_discrete_sequence=px.colors.sequential.Inferno_r)
         
         fig_3.update_layout(showlegend=False)
