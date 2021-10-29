@@ -190,7 +190,7 @@ def otros_datos(df_size,df_sector):
         st.subheader("Grandes empresas por sector")
 
         if st.button("Ver cifras"):
-            st.dataframe(df_size)
+            st.dataframe(df_sector)
 
         fig_emp_sector = gr.emp_sector(df_sector)
 
