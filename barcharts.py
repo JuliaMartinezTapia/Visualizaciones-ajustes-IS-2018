@@ -84,7 +84,7 @@ def grafico_disminucion(df_ajuste_graf):
                  x=df_ajuste_graf.index,
                  y="Disminución",
                  color=df_ajuste_graf.index,
-                labels={"index": "Sector", "Disminución": "miles de euros"},
+                labels={"index": "Sector", "Disminución": "Importe: miles de euros"},
                 height=500,
                  template="plotly_white",
                  hover_data={"Disminución":":."},
