@@ -21,9 +21,7 @@ def ajustes_agregado(df_ajustes,sector,tipo):
 
     #Gráfica aumentos
     
-    eje_x = aum[sector]/1000
-
-    figA = px.bar(aum, x=eje_x, y="Partidas",
+    figA = px.bar(aum, x=sector, y="Partidas",
                   color='Partidas',
                   labels= {sector: "Importe (miles de millones de euros)", "Partidas":"Ajuste fiscal"},
                   height=500,
