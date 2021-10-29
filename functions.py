@@ -54,17 +54,17 @@ def comp(df_ajustes):
 
     col1.subheader("Aumentos")
 
-    if col1.button("Ver importes (miles €)"):
-        tabla_aum = todos_sort[["Partidas", "Todos los sectores"]].set_index("Partidas")
-        col1.dataframe(tabla_aum)
+    #if col1.button("Ver importes (miles €)"):
+        #tabla_aum = todos_sort[["Partidas", "Todos los sectores"]].set_index("Partidas")
+        #col1.dataframe(tabla_aum)
 
     co11.plotly_chart(comp_aum, use_container_width=True)
 
     col2.subheader("Disminuciones")
 
-    if col2.button("Ver importes (miles €) "):
-        tabla_dism = todos_sort_dism[["Partidas", "Todos los sectores"]].set_index("Partidas")
-        col2.dataframe(tabla_dism)
+    #if col2.button("Ver importes (miles €) "):
+        #tabla_dism = todos_sort_dism[["Partidas", "Todos los sectores"]].set_index("Partidas")
+        #col2.dataframe(tabla_dism)
 
     col2.plotly_chart(comp_dism, use_container_width=True)
 
