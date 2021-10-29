@@ -46,34 +46,27 @@ def home():
 
 def comp(df_ajustes):
 
-    sentido = st.sidebar.radio("¿Que tipo de ajuste quieres ver?",
-                     options=['Aumentos', 'Disminuciones'])
-
     comp_aum, comp_dism, todos_sort, todos_sort_dism = gr.comp(df_ajustes)
+    
+    st.header("Composición de los ajustes de las grandes empresas (todos los sectores)")
+    
+    col1, col2 = st.columns(2)
 
-    if sentido == "Aumentos":
+    col1.subheader("Aumentos")
 
-        st.header("Composición de los ajustes de las grandes empresas (todos los sectores)")
+    if col1.button("Ver importes (miles €)"):
+        tabla_aum = todos_sort[["Partidas", "Todos los sectores"]].set_index("Partidas")
+        col1.dataframe(tabla_aum)
 
-        st.subheader("Aumentos")
+        co11.plotly_chart(comp_aum, use_container_width=True)
 
-        if st.button("Ver importes (miles €)"):
-            tabla_aum = todos_sort[["Partidas", "Todos los sectores"]].set_index("Partidas")
-            st.dataframe(tabla_aum)
+     col2.subheader("Disminuciones")
 
-        st.plotly_chart(comp_aum, use_container_width=True)
+     if col2.button("Ver importes (miles €) "):
+        tabla_dism = todos_sort_dism[["Partidas", "Todos los sectores"]].set_index("Partidas")
+        col2.dataframe(tabla_dism)
 
-    elif sentido == "Disminuciones":
-
-        st.title("Composición de los ajustes de las grandes empresas (todos los sectores)")
-
-        st.subheader("Disminuciones")
-
-        if st.button("Ver importes (miles €) "):
-            tabla_dism = todos_sort_dism[["Partidas", "Todos los sectores"]].set_index("Partidas")
-            st.dataframe(tabla_dism)
-
-        st.plotly_chart(comp_dism, use_container_width=True)
+        col2.plotly_chart(comp_dism, use_container_width=True)
 
 #Sección "Ajustes fiscales por sector"
 
