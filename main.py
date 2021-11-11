@@ -14,7 +14,7 @@ csv_path_3 = "datos/dataset ajustes IS 2018 CCAA.csv"
 ft.config_page()
 
 img = Image.open("Analisis ajustes IS 20183.png")
-st.image(img,use_column_width="auto")
+st.sidebar.image(img,use_column_width="auto")
 
 st.sidebar.title("Panel de control")
 
