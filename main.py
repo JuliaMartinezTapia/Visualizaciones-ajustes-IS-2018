@@ -16,7 +16,7 @@ ft.config_page()
 img = Image.open("Analisis ajustes IS 20183.png")
 st.sidebar.image(img,use_column_width="auto")
 
-st.sidebar.title("Panel de control")
+st.sidebar.title("Panel de control ")
 
 
 #Importo los csv con los datos en formato dataframe
