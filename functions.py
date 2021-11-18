@@ -58,7 +58,7 @@ def comp(df_ajustes):
         #tabla_aum = todos_sort[["Partidas", "Todos los sectores"]].set_index("Partidas")
         #col1.dataframe(tabla_aum)
 
-    col_1.plotly_chart(comp_aum, use_container_width=True)
+    col_1.plotly_chart(comp_aum)#, use_container_width=True)
 
     col_2.subheader("Disminuciones")
 
@@ -66,7 +66,7 @@ def comp(df_ajustes):
         #tabla_dism = todos_sort_dism[["Partidas", "Todos los sectores"]].set_index("Partidas")
         #col2.dataframe(tabla_dism)
 
-    col_2.plotly_chart(comp_dism, use_container_width=True)
+    col_2.plotly_chart(comp_dism)#, use_container_width=True)
 
 #Sección "Ajustes fiscales por sector"
 
